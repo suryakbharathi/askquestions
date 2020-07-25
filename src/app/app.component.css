@@ -1,0 +1,17 @@
+.top-header {
+    position: sticky;
+    top: 0;
+    padding: 4px;
+    background: #ffffff;
+}
+.teamwave-logo {
+    height: 40px;
+}
+.teamwave-logo img {
+    height: 100%;
+}
+.main-header {
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+}

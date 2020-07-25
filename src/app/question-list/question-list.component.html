@@ -1,0 +1,27 @@
+
+<div class="main df">
+    <div *ngIf="questionsList">
+        <div class="question-area" *ngFor="let question of questionsList">
+            <div class="df">
+                <div>
+                    <div class="qtitle"> {{question.title}} </div>
+                    <div class="df" *ngIf="question.tags && question.tags.length">
+                        <div> Tags: </div>
+                        <div class="df tag-area font14" *ngFor="let tags of question.tags">
+                            {{tags}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div  *ngIf="!(questionsList && questionsList.length)">
+        <div class="loader" #loader>
+            <i class="fas fa-spinner"></i>
+        </div>
+    </div>
+</div>
+<div class="df paginationArea fontBold">
+    <app-pagination [initialPage]="page" [items]="items" [maxPages]="maxPages" [pageSize]="pageSize" (changePage)="onChangePage($event)">
+    </app-pagination>
+</div>
