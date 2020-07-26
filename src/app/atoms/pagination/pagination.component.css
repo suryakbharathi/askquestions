@@ -1,6 +1,6 @@
 .page-item.active .page-link {
     z-index: 1;
-    color: var(--white);
+    color: #ffffff;
     transform: rotate(-45deg);
 }
 
@@ -11,7 +11,7 @@
     width: -moz-max-content;
     width: max-content;
     line-height: 1.25;
-    color: var(--twentyfive);
+    color: #0765c6;
 }
 
 a:not([href]):not([tabindex]) {
@@ -32,7 +32,7 @@ li {
     transform: rotate(45deg);
     height: 30px;
     width: 30px;
-    background: var(--one);
+    background: #399834;
 }
 
 .pagination li {

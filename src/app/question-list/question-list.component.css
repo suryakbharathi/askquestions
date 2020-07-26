@@ -1,7 +1,12 @@
 .main {
-    align-items: center;
-    margin: 10px 0;
+    margin: auto;
+    width: 67%;
     flex-direction: column;
+}
+.tag-dropdown {
+    width: 140px;
+    margin-left: 26px;
+    margin-top: 2px;
 }
 .question-area {
     padding-bottom: 10px;
@@ -69,3 +74,92 @@
       transform: rotate(360deg);
     }
   }
+  .top-header {
+    position: sticky;
+    top: 0;
+    padding: 4px;
+    background: #ffffff;
+}
+.teamwave-logo {
+    height: 40px;
+}
+.teamwave-logo img {
+    height: 100%;
+}
+.main-header {
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+}
+.search-container {
+    width: 80%;
+    margin-right: 15px;
+}
+.searcharea {
+    width: 100%;
+    align-self: flex-end;
+    margin-left: 20px;
+    position: relative;
+}
+  
+.searcharea label input {
+  padding-left: 30px;
+  line-height: 2;
+  height: 40px;
+  width: 100%;
+  border: none;
+  border: 1px solid #c5c5c5;
+  border-radius: 4px;
+}
+
+.searcharea label input::placeholder {
+  color: #c5c5c5;
+}
+
+.searcharea label .search-icon {
+  position: absolute;
+  cursor: pointer;
+  color: #686f7a4f;
+  left: 6px;
+  height: 100%;
+}
+
+.f-box {
+    border: 1px solid #9fa6ad;
+    border-radius: 5px;
+    padding: 4px;
+    margin-right: 6px;
+    cursor: pointer;
+    margin-top: 2px;
+    color: #6a737c;
+}
+.f-box:hover {
+    color: black;
+}
+.f-box-active {
+    background: #e4e6e8;
+    color: #3c4146;
+}
+
+.score-area {
+  width: 30%;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+.q-title {
+  width: 70%;
+}
+
+@media screen and (max-width: 480px) {
+  .top-header, .question-area {
+    flex-direction: column;
+  }
+  .score-area {
+    margin: 6px;
+    width: 100%;
+  }
+  .main, .q-title {
+    width: 100%;
+  }
+}

@@ -1,0 +1,51 @@
+<div class="main-container">
+    <div (click)="mySelectBoxOpen()" [ngClass]="{'mydropdown': !dropDownClass, 
+    'ap_mydropdown': dropDownClass === 'ap_mydropdown'}" [ngStyle]='styles'>
+      <span *ngIf="selectedItems && selectedItems.length === 0" class="inner-text">
+        {{placeHolder}}
+      </span>
+      <span *ngIf="selectedItems && selectedItems.length === 1" class="inner-text">
+        {{selectPlaceHolder()}}
+      </span>
+      <span *ngIf="selectedItems && selectedItems.length >= 2" class="inner-text">
+        {{selectedItems.length}} items selected
+      </span>
+      <span class="icon-padding fas fa-angle-down icon-width"></span>
+    </div>
+    <div [ngClass]="{'options': !overLayClass, 'ap_options': overLayClass === 'ap_options'}"
+      *ngIf="filter_active === true">
+      <div class="sdouter">
+        <div class="search" *ngIf="type === 'multi' || search === true" [ngClass]="{ 'position1': value === coursedash }">
+          <!-- <span *ngIf="type === 'multi'">
+            <input class="checkbox preventBlur" type="checkbox" name="dropdown" value="all_selected"
+              [(ngModel)]="all_selected" (click)="selectOption('all')">
+          </span> -->
+          <span class="search-div df" *ngIf="value!==coursedash">
+            <input #search type="text" placeholder="Search" value="{{searchData}}" class="searchbox preventBlur"
+              (keyup)="searchApplied(search.value)">
+            <span class="icon  fas fa-search search-icon"></span>
+          </span>
+          <span class="search-div" *ngIf="value===coursedash">
+            <span class="icon icon-search search-icon" [ngClass]="{ 'searchicon-left': value === coursedash }"></span>
+            <input #search type="text" placeholder="Search" value="{{searchData}}" class="searchbox preventBlur"
+              (keyup)="searchApplied(search.value)">
+  
+          </span>
+        </div>
+        <ul>
+          <div class="selectcheck">
+            <div class="pad1" *ngIf="type === 'multi'"><input class="checkbox preventBlur" type="checkbox" name="dropdown" value="all_selected"
+              [(ngModel)]="all_selected" (click)="selectOption('all')"><div class="selectallclass padding"> SelectAll</div></div>
+          </div>
+          <div class="padding" *ngFor="let each of optionArray; let i = index;">
+            <li class="each-option hide-x" [ngClass]="{'selected-bg': selectedArray[i]}" (click)="selectOption(each, i)">
+              <input *ngIf="type === 'multi'" class="checkbox preventBlur" type="checkbox" name="dropdown"
+                value="selectedArray[i]" [(ngModel)]="selectedArray[i]">
+              <label [ngClass]="{'width90': type === 'multi', 'width100': type !== 'multi'}"
+                class="padding-left cursor hide-x">{{each.label}}</label>
+            </li>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>

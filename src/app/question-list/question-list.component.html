@@ -1,27 +1,65 @@
 
+<div class="df top-header">
+    <div class="teamwave-logo"> <img src="https://teamwave.com/static/img/logo.png"> </div>
+    <div class="df">
+        <div class="df search-container">
+            <div class="searcharea">
+            <label>
+              <span (click)="getQuestions()" class="fas fa-search search-icon font18">  </span>
+              <input id="search" class="font18" placeholder="Search..." (keydown.enter)="getQuestions()" (keypress)="getQuestions()" (keydown)="onSearchback($event)" (backspace)="getQuestions()" [(ngModel)]="title">
+            </label>
+            </div>
+          </div>
+          <div class="tag-dropdown">
+            <app-select-dropdown  [search]="true" [type]="'multi'" [optionArray]="tags" [placeHolder]="progressdefault"
+                (dropDownEmit)="setFilterData($event, 'progress')"></app-select-dropdown>
+        </div>
+    </div>
+</div>
 <div class="main df">
     <div *ngIf="questionsList">
-        <div class="question-area" *ngFor="let question of questionsList">
-            <div class="df">
+        <div class="df font14"> 
+            <div (click)="qAccepted = false; getQuestions()" [ngClass]="{ 'f-box-active': !qAccepted }" class="f-box"> All Questions </div>
+            <div (click)="qAccepted = true; getQuestions()" [ngClass]="{ 'f-box-active': qAccepted }" class="f-box"> Answered Questions </div>
+        </div>
+        <div class="question-area df" *ngFor="let question of questionsList">
+            <div class="df q-title">
                 <div>
                     <div class="qtitle"> {{question.title}} </div>
                     <div class="df" *ngIf="question.tags && question.tags.length">
-                        <div> Tags: </div>
+                        <div style="color: #535a60;" class="font14" > Tags: </div>
                         <div class="df tag-area font14" *ngFor="let tags of question.tags">
                             {{tags}}
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="df score-area font14">
+                <div> 
+                    <div> {{question.score}} </div>
+                    <div> Votes </div>
+                </div>
+                <div>
+                    <div> {{question.answer_count}} </div>
+                    <div> Answered </div>
+                </div>
+                <div>
+                    <div> {{question.view_count}} </div>
+                    <div> Views </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div  *ngIf="!(questionsList && questionsList.length)">
+    <div  *ngIf="!(questionsList && questionsList.length) && !notFound">
         <div class="loader" #loader>
             <i class="fas fa-spinner"></i>
         </div>
     </div>
+    <div *ngIf="notFound">
+       Not found, Please search again
+    </div>
 </div>
-<div class="df paginationArea fontBold">
+<div class="df paginationArea fontBold" *ngIf="hasMore">
     <app-pagination [initialPage]="page" [items]="items" [maxPages]="maxPages" [pageSize]="pageSize" (changePage)="onChangePage($event)">
     </app-pagination>
 </div>
