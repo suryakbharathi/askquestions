@@ -1,5 +1,5 @@
 # TeamWave
-For Project completion status, please look inti assignment completion status file
+For Project completion status, please look into assignment info file
 # suryabharathi
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.4.
