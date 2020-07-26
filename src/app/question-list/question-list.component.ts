@@ -55,10 +55,8 @@ export class QuestionListComponent implements OnInit {
         this.notFound = false;
       }
       if (this.items && this.items.length === 0) {
-        console.log('indie if',typeof response.quota_remaining)
         this.items = [];
         this.items.length = response.quota_max;
-        console.log(this.items, 'items length')
       }
     }, (error: any) => {
       console.log(error, 'error getquestions');
@@ -66,7 +64,6 @@ export class QuestionListComponent implements OnInit {
   }
 
   onChangePage(pageItem) {
-    console.log(pageItem, 'page of item')
     this.page = pageItem;
     this.getQuestions();
   }
