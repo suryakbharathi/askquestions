@@ -1,0 +1,10 @@
+Things to do,
+  Need to add few more filters,
+  Detail screen have to do.
+  
+Things Done : 
+  Listed Questions integrating with stackoverflow api with pagination.
+  Using search bar you can search for a question.
+  Using Tags dropdown, you select under what category you searching for.
+  Using Answered Question Tab, you can able to filter only answered questions.
+  
